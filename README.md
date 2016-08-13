@@ -17,7 +17,7 @@ npm test
 
 ### TODO:
 
-- [ ] Automate adding drivers to path.
+- [ ] Automate adding drivers to $PATH.
 - [ ] Merge [wdio-teamcity-reporter#9](/sullenor/wdio-teamcity-reporter/pull/9).
 - [ ] Get `executeAsyncScript` working in as many browsers as possible.
 
