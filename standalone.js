@@ -1,6 +1,8 @@
 const wdio = require('webdriverio')
 const Promise = require('bluebird')
 const _ = require('lodash')
+const fs = require('fs')
+const path = require('path')
 
 const getOpts = require('./wdio.opts.js')
 const browser = process.env.browser || 'chrome'
@@ -66,9 +68,21 @@ function executeTest(test) {
             }, test)
     )
         .then(response => response.value)
+        .tap(() => process.env.takeScreenshot && screenshot(test))
         .tap(log)
 }
 
 function log(...strings) {
     console.log(`${new Date().toLocaleTimeString()} [${_.padStart(browser, 8)}] ${strings.join(' ')}`)
+}
+
+function screenshot(test) {
+    return client.screenshot()
+        .then(({ value }) => {
+            const date = new Date().toISOString().replace(':','.')
+            const filePath = path.join(__dirname, `screens/screen-${date}-${test}.png`)
+            fs.writeFile(filePath, value, 'base64', function (err) {
+                if(err) console.log(err);
+            })
+        })
 }

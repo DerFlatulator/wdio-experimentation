@@ -31,6 +31,26 @@ const browserOpts = {
             nativeEvents: false,
         }
     }),
+    'opera': () => ({
+        desiredCapabilities: {
+            browserName: 'opera',
+        }
+    }),
+    'safari': () => ({
+        desiredCapabilities: {
+            browserName: 'safari',
+        }
+    }),
+    'edge': () => ({
+        desiredCapabilities: {
+            browserName: 'microsoft edge',
+        }
+    }),
+    'phantomjs': () => ({
+        desiredCapabilities: {
+            browserName: 'phantomjs',
+        }
+    }),
 }
 
 const commonOpts = {
