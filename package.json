@@ -4,15 +4,17 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "test": "wdio"
+    "test": "node standalone"
   },
   "author": "Lucas Azzola <lucas.azzola@iress.com.au>",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.15.0",
     "webdriverio": "^4.2.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "firefox-profile": "^0.4.0",
     "wdio-firefox-profile-service": "0.0.1",
     "wdio-mocha-framework": "^0.4.0",
     "wdio-teamcity-reporter": "^1.0.2"

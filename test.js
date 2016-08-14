@@ -1,19 +1,20 @@
-describe('UI Tests', () => {
+const browserOpts = {
+    'chrome': {
+        desiredCapabilt
+    }
+}
 
-  before(() => {
-    browser.url('https://google.com');
-    describe('All Tests', () => {
-      ['a','b','c'].forEach(l => {
-        it(l, () => {
-          console.log('pass', l);
-        });
-      });
-    });
-  });
+const commonOpts = {
 
-  it('logs in', () => {
-    expect(browser.getTitle()).to.contain('Google');
-    console.log('success');
-  });
+}
 
-});
+module.exports = {
+    common() {
+        return commonOpts;
+    },
+    forBrowser(browser) {
+        return browserOpts[browser];
+    },
+};
+
+
